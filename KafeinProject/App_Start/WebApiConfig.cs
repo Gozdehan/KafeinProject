@@ -12,6 +12,7 @@ namespace KafeinProject
             // Web API configuration and services
 
             // Web API routes
+            GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear(); //Veri alış verişinde JSON kullanabilmek için eklendi
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
