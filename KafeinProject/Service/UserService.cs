@@ -7,5 +7,6 @@ namespace KafeinProject.Service
 {
     public class UserService
     {
+
     }
 }
