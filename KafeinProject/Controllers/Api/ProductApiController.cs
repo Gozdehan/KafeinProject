@@ -20,24 +20,9 @@ namespace KafeinProject.Controllers
         }
 
         // GET: api/ProductApi/5
-        public string Get(int id)
+        public IEnumerable<Product> Get(int id)
         {
-            return "value";
-        }
-
-        // POST: api/ProductApi
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT: api/ProductApi/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/ProductApi/5
-        public void Delete(int id)
-        {
+            return dbContext.Products.Where(i => i.Id == id).ToList();
         }
     }
 }

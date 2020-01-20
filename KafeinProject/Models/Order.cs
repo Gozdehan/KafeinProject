@@ -18,5 +18,6 @@ namespace KafeinCaseStudyProject.Models
         public virtual Product FProduct { get; set; }
         public virtual User FUser { get; set; }
 
+
     }
 }

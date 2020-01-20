@@ -11,6 +11,7 @@ namespace KafeinCaseStudyProject.Models
     [Table("Products")]
     public class Product
     {
+     
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
@@ -20,10 +21,8 @@ namespace KafeinCaseStudyProject.Models
         [StringLength(750)]
         public string Description { get; set; }
 
-        [StringLength(50)]
+        [StringLength(50), Required]
         public string Price { get; set; }
 
-        //one-to-many
-        public User User { get; set; }
     }
 }

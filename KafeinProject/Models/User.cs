@@ -17,20 +17,17 @@ namespace KafeinCaseStudyProject.Models
         [StringLength(11), Required]
         public string TCKN { get; set; }
 
-        [StringLength(50), Required]
+        [StringLength(50)]
         public string Name { get; set; }
 
-        [StringLength(50), Required]
+        [StringLength(50)]
         public string Surname { get; set; }
 
-        [StringLength(11)]
+        [StringLength(11), Required]
         public string Gsm { get; set; }
 
         [StringLength(50)]
         public string Email { get; set; }
-
-        //one-to-many 
-        public virtual ICollection<Product> Products { get; set; }
 
     }
 }

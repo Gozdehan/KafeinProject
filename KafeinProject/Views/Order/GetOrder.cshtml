@@ -1,0 +1,31 @@
+﻿@model IEnumerable<KafeinCaseStudyProject.Models.Order>
+
+@{
+    ViewBag.Title = "GetOrder";
+}
+
+<h2>GetOrder</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FProduct)
+        </th>    
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FUser.TCKN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FProduct.Name)
+            </td>         
+        </tr>
+    }
+
+</table>
