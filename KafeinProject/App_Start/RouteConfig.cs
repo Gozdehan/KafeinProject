@@ -16,7 +16,7 @@ namespace KafeinProject
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "User", action = "GetUser", id = UrlParameter.Optional }
+                defaults: new { controller = "Order", action = "GetOrder", id = UrlParameter.Optional }
             );
         }
     }

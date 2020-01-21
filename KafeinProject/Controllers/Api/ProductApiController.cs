@@ -13,16 +13,40 @@ namespace KafeinProject.Controllers
     {
         DatabaseContext dbContext = new DatabaseContext();
 
+        // Tüm ürün bilgilerinin listelendiği GET method
         // GET: api/ProductApi
         public IEnumerable<Product> Get()
         {
-            return dbContext.Products.ToList();
+            try
+            {
+                return dbContext.Products.ToList();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                dbContext.Dispose();
+            }
         }
 
+        // Seçili ürün bilgilerinin listelendiği GET method
         // GET: api/ProductApi/5
         public IEnumerable<Product> Get(int id)
         {
-            return dbContext.Products.Where(i => i.Id == id).ToList();
+            try
+            {
+                return dbContext.Products.Where(i => i.Id == id).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                dbContext.Dispose();
+            }         
         }
     }
 }

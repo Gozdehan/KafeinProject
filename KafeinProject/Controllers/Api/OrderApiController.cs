@@ -15,27 +15,28 @@ namespace KafeinProject.Controllers.Api
     {
         DatabaseContext dbContext = new DatabaseContext();
 
+        // Tüm siparişleri listeleyen GET method
         // GET: api/OrderApi
         public IEnumerable<Order> Get()
         {
             return dbContext.Orders.ToList();
         }
 
+        // Seçili siparişi listeleyen GET method
         // GET: api/OrderApi/5
         public IEnumerable<Order> Get(int id)
         {
           return dbContext.Orders.Where(i => i.Id == id).ToList();
-
         }
 
+        // Hangi kullanıcının hangi ürünü aldığını Order tablosuna kaydeden POST method
         // POST: api/OrderApi
         public void Post(PostOrder postOrder)
         {
             DatabaseContext db = new DatabaseContext();
             Order order = new Order();
             try
-            {
-              
+            {             
                var orderList= db.Products.Where(c => postOrder.ProductIds.Contains(c.Id)).ToList();
                
                 order.FUser = db.Users.FirstOrDefault(c => c.Id == postOrder.UserId);
@@ -48,8 +49,7 @@ namespace KafeinProject.Controllers.Api
                
             }
             catch (Exception e)
-            {
-             
+            {           
                 throw e; 
             }
             finally
